@@ -1,5 +1,5 @@
 export const profile = {
-	fullName: 'Your Name',
+	fullName: 'Andrew Colclough',
 	title: '',
 	institute: '',
 	author_name: '', // Author name to be highlighted in the papers section
@@ -12,7 +12,7 @@ export const profile = {
 export const social = {
 	email: '',
 	linkedin: '',
-	x: 'https://www.x.com/',
+	x: '',
 	github: '',
 	gitlab: '',
 	scholar: '',
@@ -32,7 +32,7 @@ export const template = {
 }
 
 export const seo = {
-	default_title: 'Astro Academia',
-	default_description: 'Astro Academia is a template for academic websites.',
+	default_title: 'adc3',
+	default_description: 'blabbity blah.',
 	default_image: '/images/astro-academia.png',
 }

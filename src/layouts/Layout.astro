@@ -1,6 +1,9 @@
 ---
-import { ClientRouter } from 'astro:transitions';
+import '@fontsource/gudea';
+import '@fontsource/rancho';
 
+import { ClientRouter } from 'astro:transitions';
+import '../styles/global.css';
 import BetterIcon from '../components/ui/BetterIcon.astro'
 import DarkLightController from '../components/ui/DarkLightController.astro'
 import Navbar from '../components/ui/Navbar.astro'
@@ -8,14 +11,18 @@ import Head from '../components/Head.astro'
 
 import { seo, profile, template } from '../settings'
 import Footer from '../components/ui/Footer.astro'
+import Mast from '@/components/ui/Mast.astro';
 
 type Props = {
 	title?: string
 	description?: string
 	image?: string
+	mast?: string,
+	frontmatter?: any
 }
 
 const {
+	frontmatter,
 	title = seo.default_title,
 	description = seo.default_description,
 	image = seo.default_image,
@@ -33,6 +40,7 @@ const {
 
 	</head>
 	<body>
+		<Mast mast={frontmatter?.mast} />
 		<div class={`bg-base-100 drawer lg:drawer-open ${template.menu_left ? 'drawer-end' : ''}`}>
 			<input id='my-drawer' type='checkbox' class='drawer-toggle' />
 			<!-- Drawer content -->
