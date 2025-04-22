@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets'
 import {profile} from '../../settings'
 import SocialIcons from './SocialIcons.astro'
-import ProfilePictures from '@/assets/profile_pictures.jpg'
+import ProfilePictures from '@/assets/ac-initials-zoomed.jpeg'
 import { getCollection } from 'astro:content'
 import { template } from '@/settings'
 
@@ -29,10 +29,10 @@ const {fullName, title} = profile
                         <a href=`${template.base}/` class='text-lg'>Home</a>
 					</li>
 					<li>
-                        <a href=`${template.base}/research` class='text-lg'>Research</a>
+                        <a href=`${template.base}/design` class='text-lg'>Design</a>
 					</li>
 					<li>
-                        <a href=`${template.base}/papers` class='text-lg'>Papers</a>
+                        <a href=`${template.base}/illustration` class='text-lg'>Illustration</a>
 					</li>
 					<li>
                         <a href=`${template.base}/cv` class='text-lg'>CV</a>
