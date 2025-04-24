@@ -1,0 +1,35 @@
+---
+import { Image } from 'astro:assets'
+import {profile} from '../../settings'
+import ProfilePictures from '@/assets/ac-initials-zoomed.jpeg'
+const {fullName, title} = profile
+---
+
+<div class="avatar-head hidden">
+	<!-- <div class=''> -->
+		<Image
+			class='mask mask-circle size-44'
+			src={ProfilePictures}
+			alt={`Logo for ${fullName}`}
+		/>
+		
+	<!-- </div> -->
+</div>
+<style>
+.avatar-head {
+  z-index:1000;
+  position:absolute;
+  top:195px;
+  left:75px;
+  display:flex;
+  /* width:calc(100% - 1rem);
+  align-items:center;
+  justify-content:center; */
+
+}
+@media (max-width: 1024px){
+    .avatar-head {
+      display:none;
+    }
+  }
+</style>

@@ -1,8 +1,8 @@
 export const profile = {
 	fullName: 'Andrew Colclough',
-	title: 'Designer | Developer | Illustrator',
+	title: 'UI Designer & Developer | Illustrator',
 	institute: '',
-	author_name: '', // Author name to be highlighted in the papers section
+	author_name: 'adc', // Author name to be highlighted in the papers section
 	research_areas: [
 		// { title: 'Physics', description: 'Brief description of the research interest', field: 'physics' },
 	],

@@ -10,19 +10,25 @@ const isBlogPopulated = await getCollection('blog').then(collection => collectio
 
 const {fullName, title} = profile
 ---
+
+<!-- <div class="avatar-head">
+	<div class='flex justify-center items-center flex-col'>
+		<Image
+			class='mask mask-circle size-44'
+			src={ProfilePictures}
+			alt={`Profile picture of ${fullName}`}
+		/>
+		
+	</div>
+</div> -->
+
 <aside
-	class='px-4 pt-4 h-screen w-[20rem] bg-base-200 text-base-content flex flex-col'
+	class='sidenav px-4 pt-4 h-screen w-[20rem] bg-base-200 text-base-content flex flex-col'
 >
 	<div class='flex flex-col my-8 justify-between h-full'>
 		<div>
-			<div class='flex justify-center items-center flex-col'>
-				<Image
-					class='mask mask-circle size-44'
-					src={ProfilePictures}
-					alt={`Profile picture of ${fullName}`}
-				/>
-				<h1 class="text-lg font-black mt-8 hidden lg:block">{title} <span>{fullName}</span></h1>
-			</div>
+			<h1 class="name "><span>{fullName}</span></h1>
+			<h2 class="title">{title}</h2>
 			<div class='mx-4 mt-16'>
 				<ul class='space-y-4 menu grow shrink menu-md overflow-y-auto'>
 					<li>
@@ -53,3 +59,30 @@ const {fullName, title} = profile
 		</div>
 	</div>
 </aside>
+
+
+<style>
+	/* .avatar-head {
+		z-index:800;
+		position:absolute;
+		top:-40px;
+		display:flex;
+		width:calc(100% - 1rem);
+		align-items:center;
+		justify-content:center; 
+
+	}*/
+
+	h1.name {
+		font-weight:400;
+		size: 24px;
+		margin-top:8px;
+	}
+
+	h2.title {
+		font-family:'Gudea', sans-serif;
+		font-weight:200;
+		size: 16px;
+		margin:8px 0;
+	}
+</style>
