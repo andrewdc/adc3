@@ -8,7 +8,6 @@ import BetterIcon from '../components/ui/BetterIcon.astro'
 import DarkLightController from '../components/ui/DarkLightController.astro'
 import Navbar from '../components/ui/Navbar.astro'
 import Head from '../components/Head.astro'
-
 import { seo, profile, template } from '../settings'
 import Footer from '../components/ui/Footer.astro'
 import Mast from '@/components/ui/Mast.astro';
@@ -27,6 +26,7 @@ const {
 	description = seo.default_description,
 	image = seo.default_image,
 } = Astro.props
+const mast = frontmatter?.mast || './homeMast.jpeg';
 ---
 
 <!doctype html>
@@ -40,7 +40,7 @@ const {
 
 	</head>
 	<body>
-		<Mast mast={frontmatter?.mast} />
+		<Mast mast={mast} />
 		<div class={`bg-base-100 drawer lg:drawer-open ${template.menu_left ? 'drawer-end' : ''}`}>
 			<input id='my-drawer' type='checkbox' class='drawer-toggle' />
 			<!-- Drawer content -->
