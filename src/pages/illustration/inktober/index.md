@@ -1,6 +1,6 @@
 ---
 title: "Inktober 2016"
-layout: "../../layouts/Layout.astro" 
+layout: "../../../layouts/Layout.astro" 
 mast: "./ill.jpg"
 ---
 

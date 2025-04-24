@@ -1,6 +1,6 @@
 ---
 title: "Lonely Lenny - Inktober 2016"
-layout: "../../layouts/Layout.astro" 
+layout: "../../../layouts/Layout.astro" 
 mast: "./20161017_071731.jpg"
 ---
 
