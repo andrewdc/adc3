@@ -1,21 +1,28 @@
 ---
-const {mast} = Astro.props;
+// import DarkLightController from '@/components/ui/DarkLightController.astro';
+const { mast } = Astro.props;
 ---
 
-{ mast && <div class="mast" style={`background-image: url(/masts/${mast})`}></div>}
-
-<style>
-.mast {
-  height:240px;
-  /* margin-bottom:30px; */
-  background-position: center;
-  background-repeat:no-repeat;
-  background-size:cover;
+{
+  mast && (
+    <div class="mast" style={`background-image: url(/masts/${mast})`}>
+      {/* <DarkLightController /> */}
+    </div>
+  )
 }
 
-@media (min-width: 769px){
+<style>
+  .mast {
+    height: var(--mast-height);
+    /* margin-bottom:30px; */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  @media (min-width: 769px) {
     .mast {
-      height:30vh;
+      height: 30vh;
     }
   }
 </style>

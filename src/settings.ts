@@ -1,6 +1,6 @@
 export const profile = {
 	fullName: 'Andrew Colclough',
-	title: 'UI Designer & Developer | Illustrator',
+	title: 'Designer | Developer | Illustrator',
 	institute: '',
 	author_name: 'adc', // Author name to be highlighted in the papers section
 	research_areas: [

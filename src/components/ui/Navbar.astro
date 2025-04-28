@@ -1,10 +1,11 @@
 ---
-import { Image } from 'astro:assets'
-import {profile} from '../../settings'
+// import { Image } from 'astro:assets'
+import {profile} from '@/settings'
 import SocialIcons from './SocialIcons.astro'
-import ProfilePictures from '@/assets/ac-initials-zoomed.jpeg'
+// import ProfilePictures from '@/assets/ac-initials-zoomed.jpeg'
 import { getCollection } from 'astro:content'
 import { template } from '@/settings'
+import Self from './Self.astro'
 
 const isBlogPopulated = await getCollection('blog').then(collection => collection.length > 0)
 
@@ -25,11 +26,10 @@ const {fullName, title} = profile
 <aside
 	class='sidenav px-4 pt-4 h-screen w-[20rem] bg-base-200 text-base-content flex flex-col'
 >
-	<div class='flex flex-col my-8 justify-between h-full'>
+	<div class='content flex flex-col my-8  '> <!--h-full justify-between -->
+		<Self/>
 		<div>
-			<h1 class="name "><span>{fullName}</span></h1>
-			<h2 class="title">{title}</h2>
-			<div class='mx-4 mt-16'>
+			<div class='mx-4'>
 				<ul class='space-y-4 menu grow shrink menu-md overflow-y-auto'>
 					<li>
                         <a href=`${template.base}/` class='text-lg'>Home</a>
@@ -72,17 +72,10 @@ const {fullName, title} = profile
 		justify-content:center; 
 
 	}*/
-
-	h1.name {
-		font-weight:400;
-		size: 24px;
-		margin-top:8px;
+	.content {
+		margin-top:75px;
+		height:calc(100vh - var(--mast-height));
 	}
 
-	h2.title {
-		font-family:'Gudea', sans-serif;
-		font-weight:200;
-		size: 16px;
-		margin:8px 0;
-	}
+	
 </style>
