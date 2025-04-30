@@ -3,9 +3,17 @@ title: "Illustration"
 mast: "./ill.jpg"
 layout: "../../layouts/Layout.astro" 
 
+images: ["galleries/illustration/cabinsketches.jpg","galleries/illustration/k2so.jpg", "galleries/illustration/potbelly.jpg","galleries/illustration/kipper.jpg", "galleries/illustration/walker.jpg"]
 ---
+import ImageGallery from "@/components/ui/ImageGallery.astro";
+
+
+
+## Illustration
+
 My live outlet for my illustration work is through Instagram: [@bullet_and_whiskey](https://www.instagram.com/bullet_and_whiskey/). Feel free to drop by and say hello! Here are a few highlights:
 
+<ImageGallery images={frontmatter.images} />
 
 
 [![kipper](./kipper.jpg)](./kipper.jpg)  
