@@ -7,12 +7,13 @@ import SocialIcons from './SocialIcons.astro'
 const {fullName, title, institute, profilePicture} = Astro.props
 ---
 <div class='flex-1'>
-  <h1 class='text-4xl font-bold mb-4'>
-    Welcome! I'm <span class='text-secondary'>{fullName}</span>
+  <h1 class='hello font-bold mb-4'>
+    <!-- Hello! I'm {fullName} -->
+     Hello, I'm Andrew
   </h1>
-  <p class='text-xl text-gray-600 mb-4'>{title}{institute ? ` at ${institute}` : ''}</p>
+  <!-- <p class='text-xl text-gray-600 mb-4'>{title}{institute ? ` at ${institute}` : ''}</p> -->
   <p class='text-lg mb-6'>
-    My name is Andrew Colclough, and I am a UI designer, developer, and illustrator living in Austin Texas. I graduated with a degree in multimedia design from the University of Oregon in 2005 and have been designing and building web software and applications ever since. I have worked on applications for the Health Care, Education, Gaming, and E-commerce industries.
+    I am a UI designer, developer, and illustrator living in Austin Texas. I graduated with a degree in multimedia design from the University of Oregon in 2005 and have been designing and building web software and applications ever since. I have worked on applications for the Health Care, Education, Gaming, Finance, and Human Resources industries.
   </p>
   <div class='flex gap-4'>
     <SocialIcons />
@@ -26,3 +27,10 @@ const {fullName, title, institute, profilePicture} = Astro.props
     class='w-full h-full mask mask-circle size-44'
   />
 </div>
+
+
+<style>
+  h1.hello {
+    margin-top: 1rem;
+  }
+</style>

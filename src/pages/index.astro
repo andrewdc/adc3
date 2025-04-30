@@ -1,14 +1,14 @@
 ---
-import Layout from '../layouts/Layout.astro'
+import Layout from '../layouts/Layout.astro';
 
-import { profile } from '@/settings'
-import { publications } from '@/data/cv'
-import ProfilePictures from '@/assets/ac-initials-zoomed.jpeg'
-import Hero from '@/components/ui/Hero.astro'
-import Grid from '@/components/ui/Grid.astro'
-import ArticleList from '@/components/ui/ArticleList.astro'
+import { profile } from '@/settings';
+import { publications } from '@/data/cv';
+import ProfilePictures from '@/assets/ac-initials-zoomed.jpeg';
+import Hero from '@/components/ui/Hero.astro';
+import Grid from '@/components/ui/Grid.astro';
+import ArticleList from '@/components/ui/ArticleList.astro';
 
-const { fullName, title, institute, research_areas } = profile
+const { fullName, title, institute, research_areas } = profile;
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -16,7 +16,7 @@ const { fullName, title, institute, research_areas } = profile
 
 <Layout>
 	<!-- Hero Section -->
-	<section class='flex items-center gap-12 border-b pb-12'>
+	<section class="flex items-center gap-12 border-b pb-12">
 		<Hero
 			fullName={fullName}
 			title={title}
@@ -25,7 +25,11 @@ const { fullName, title, institute, research_areas } = profile
 		/>
 	</section>
 
-	<p>Wait... this is it? No, seriously, this is a work in progress. Hop over to <a href="/design">design</a> if you want to learn about what I have been up to with UI/UX. </p>
+	<p>
+		Wait... this is it? No, seriously, this is a work in progress. Hop over
+		to <a href="/design">design</a> if you want to learn about what I have been
+		up to with UI/UX.
+	</p>
 
 	<!-- Research Areas -->
 	<!-- <section class='py-12 border-b'>
