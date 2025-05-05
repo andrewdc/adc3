@@ -1,60 +1,102 @@
 ---
-import Pagination from '@/components/ui/Pagination.astro'
-import Layout from '@/layouts/Layout.astro'
-import { trimExcerpt } from '@/lib/utils'
-import { template } from '@/settings'
-import { getCollection } from 'astro:content'
+import Pagination from '@/components/ui/Pagination.astro';
+import Layout from '@/layouts/Layout.astro';
+import { trimExcerpt } from '@/lib/utils';
+import { template } from '@/settings';
+import { getCollection } from 'astro:content';
 
-export async function getStaticPaths({ paginate }): Promise<Astro.getStaticPathsResult> {
-    const blogEntries = await getCollection("blog");
+export async function getStaticPaths({
+	paginate,
+}): Promise<Astro.getStaticPathsResult> {
+	const blogEntries = await getCollection('blog');
 
-    const posts = blogEntries
-        .map(post => ({
-            title: post.data.title,
-            date: post.data.date,
-            badge: post.data.tags[0],
-            excerpt: trimExcerpt(post.data.excerpt),
-            slug: `${template.base}/blog/${post.id}`,
-        }))
-        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+	const posts = blogEntries
+		.map((post) => ({
+			title: post.data.title,
+			date: post.data.date,
+			cover: post.data.cover,
+			tags: post.data.tags,
+			excerpt: trimExcerpt(post.data.excerpt),
+			slug: `${template.base}/blog/${post.id}`,
+		}))
+		.sort(
+			(a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+		);
 
-    return paginate(posts, {
-        pageSize: template.postPerPage,
-    });
+	return paginate(posts, {
+		pageSize: template.postPerPage,
+	});
 }
-const { page } = Astro.props
+
+const posts = await Astro.glob('@/content/BlogPosts/*.md');
+
+const allTags = posts.flatMap((post) => post.frontmatter.tags || []);
+const uniqueTags = [...new Set(allTags)].sort();
+
+const { page } = Astro.props;
 ---
 
-<Layout title='Blog'>
-    <div>
-		<h1 class='text-3xl font-bold mb-8'>Blog Posts</h1>
-		<div class='grid gap-8'>
+<Layout title="Blog">
+	<!-- Tags -->
+	{
+		uniqueTags && (
+			<div class="flex flex-wrap gap-2">
+				{uniqueTags.map((tag) => (
+					<a href={`/tags/${tag.toLowerCase()}`} class="badge badge-accent badge-outline">{tag}</a>
+				))}
+			</div>
+		)
+	}
+
+	<div class="work">
+		{
+			page.data.map((post) => (
+				<a href={post.slug} class="">
+					<img src={post.cover} alt={post.excerpt} loading="lazy" />
+					<span class="title">{post.title}</span>
+				</a>
+			))
+		}
+	</div>
+
+	<!-- <div>
+		<h1 class="text-3xl font-bold mb-8">Work</h1>
+		<div class="grid gap-8">
 			{
-				page.data.map(post => (
-					<article class='card bg-base-200 transition-all'>
-						<div class='card-body'>
-							<div class='flex justify-between items-start'>
-								<h2 class='card-title text-xl'>
-                            <a href={post.slug} class='hover:text-accent'>
+				page.data.map((post) => (
+					<article class="card bg-base-200 transition-all">
+						<div class="card-body">
+							<div class="flex justify-between items-start">
+								<h2 class="card-title text-xl">
+									<a
+										href={post.slug}
+										class="hover:text-accent"
+									>
 										{post.title}
 									</a>
 								</h2>
-								<div class='badge badge-accent badge-outline p-4'>
+								<div class="badge badge-accent badge-outline p-4">
 									{post.badge}
 								</div>
 							</div>
-							<time datetime={post.date} class='text-sm text-base-content/71'>
-								{new Date(post.date).toLocaleDateString('en-US', {
-									year: 'numeric',
-									month: 'long',
-									day: 'numeric',
-								})}
+							<time
+								datetime={post.date}
+								class="text-sm text-base-content/71"
+							>
+								{new Date(post.date).toLocaleDateString(
+									'en-US',
+									{
+										year: 'numeric',
+										month: 'long',
+										day: 'numeric',
+									}
+								)}
 							</time>
-							<p class='mt-4'>{post.excerpt}</p>
-							<div class='card-actions justify-end'>
+							<p class="mt-4">{post.excerpt}</p>
+							<div class="card-actions justify-end">
 								<a
-                            href={post.slug}
-									class='btn btn-sm btn-secondary text-secondary-content'
+									href={post.slug}
+									class="btn btn-sm btn-secondary text-secondary-content"
 								>
 									Read More
 								</a>
@@ -63,11 +105,31 @@ const { page } = Astro.props
 					</article>
 				))
 			}
-		</div>
+		</div> -->
 
-		<div class='flex justify-center mt-8'>
+	<!-- <div class="flex justify-center mt-8">
 			<Pagination page={page} />
-		</div>
-    </div>
-
+		</div> -->
 </Layout>
+
+<style>
+	.work {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		gap: 1rem;
+		padding: 1rem;
+	}
+
+	.work img {
+		max-width: 50%;
+		width: 100%;
+		height: auto;
+		border-radius: 0.5rem;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+		transition: transform 0.3s ease;
+	}
+
+	.work img:hover {
+		transform: scale(1.05);
+	}
+</style>
