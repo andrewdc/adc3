@@ -1,0 +1,33 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import ProjectThumb from '@/components/ProjectThumb.astro';
+
+const allPosts = await getCollection('projects');
+const pageTitle = 'Work';
+---
+
+<Layout title="Projects">
+	<div class="gallery">
+		{
+			allPosts.map((post: any) => (
+				<div>
+					<ProjectThumb
+						url={`/projects/${post.slug}`}
+						title={post.data.title}
+						cover={post.data.cover}
+					/>
+				</div>
+			))
+		}
+	</div>
+</Layout>
+
+<style>
+	.gallery {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		gap: 1rem;
+		padding: 1rem;
+	}
+</style>

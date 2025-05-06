@@ -1,0 +1,41 @@
+---
+const { title, url, cover } = Astro.props;
+---
+
+<a class="cover" href={url}>
+	<img class="cover" src={cover} alt={title} />
+	<div class="info">{title}</div>
+</a>
+
+<style>
+	.cover {
+		position: relative;
+	}
+	.info {
+		position:relative;
+		z-index:20;
+		bottom: 0;
+		width:max-content;
+		padding: 16px;
+		display: none;
+		background: rgba(0, 0, 0, 0.8);
+		transition: transform 0.3s ease;
+	}
+	.cover img {
+		width: 50%;
+		height: auto;
+		border-radius: 0.5rem;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+		transition: transform 0.3s ease;
+	}
+
+	.cover:hover {
+		transform: scale(1.05);
+		.info {
+			display: flex;
+			align-items: center;
+			/* transform: scale(1.05); */
+			justify-content: stretch;
+		}
+	}
+</style>

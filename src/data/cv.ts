@@ -61,3 +61,14 @@ export const publications = [
 	// 	abstract: 'Early research leading to the identification of uranium’s radioactive properties.',
 	// },
 ];
+
+export const projects = [
+	{
+		title: 'PowerSchool Design System',
+		for: 'PowerSchool',
+		cover: '',
+		time: '2019',
+		link: '',
+		description: 'A company-wide component library used by all teams and products.',
+	},
+]
