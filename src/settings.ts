@@ -12,8 +12,10 @@ export const profile = {
 export const social = {
 	email: 'andrew.design@gmail.com',
 	linkedin: 'https://www.linkedin.com/in/andrewdc/',
+	dribbble: 'https://adc.dribbble.com/',
+	instagram: 'https://www.instagram.com/bullet_and_whiskey/',
 	x: '',
-	github: '',
+	github: 'https://github.com/andrewdc',
 	gitlab: '',
 	scholar: '',
 	inspire: '',

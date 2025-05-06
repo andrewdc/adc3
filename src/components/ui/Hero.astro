@@ -1,33 +1,42 @@
 ---
-import { Image } from 'astro:assets'
+import { Image } from 'astro:assets';
 
-import SocialIcons from './SocialIcons.astro'
+import SocialIcons from './SocialIcons.astro';
 
-
-const {fullName, title, institute, profilePicture} = Astro.props
+const { fullName, title, institute, profilePicture } = Astro.props;
 ---
-<div class='flex-1'>
-  <h1 class='hello font-bold mb-4'>
+
+<div class="flex-1">
+  <h1 class="hello font-bold mb-4">
     <!-- Hello! I'm {fullName} -->
-     Hello, I'm Andrew
+    Hello, I'm Andrew
   </h1>
   <!-- <p class='text-xl text-gray-600 mb-4'>{title}{institute ? ` at ${institute}` : ''}</p> -->
-  <p class='text-lg mb-6'>
-    I am a UI designer, developer, and illustrator living in Austin Texas. I graduated with a degree in multimedia design from the University of Oregon in 2005 and have been designing and building web software and applications ever since. I have worked on applications for the Health Care, Education, Gaming, Finance, and Human Resources industries.
+  <p class="text-lg mb-6">
+    I am a UI designer, developer, and illustrator living in Austin Texas. I
+    graduated with a degree in multimedia design from the University of Oregon
+    in 2005 and have been designing and building web software and applications
+    ever since. I have worked on applications for the Health Care, Education,
+    Gaming, Finance, and Human Resources industries.
   </p>
-  <div class='flex gap-4'>
+  <p>
+    Here is <a
+      href="https://drive.google.com/file/d/1cdrwOyMxunqvFy4CDTntLyPIMEtMAZFO/view?usp=sharing"
+    >
+      my resume
+    </a>, and my work history is also available on <a
+      href="https://www.linkedin.com/in/andrewdc"
+    >
+      LinkedIn</a>.
+  </p>
+  <!-- <div class="flex gap-4">
     <SocialIcons />
-  </div>
+  </div> -->
 </div>
-<div class='size-72 lg:block hidden'>
+<div class="size-72 lg:block hidden">
   <!-- Add your profile image -->
-  <Image
-    src={profilePicture}
-    alt={fullName}
-    class=' mask mask-circle size-75'
-  />
+  <Image src={profilePicture} alt={fullName} class="mask mask-circle size-75" />
 </div>
-
 
 <style>
   h1.hello {
